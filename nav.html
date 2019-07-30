@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Menu Test</title>
+
+</head>
+<body>
+
+	<style> 
+	/* heavily inspired by https://codepen.io/erikterwan/pen/EVzeRP 
+	   rewritten for SVG icons tho 
+	*/
+		nav{ 
+
+		}
+
+
+		/* invisible input item that is over the hamburger menu */
+		input.menu_check[type="checkbox"]{
+			position: fixed;
+			top: 0;
+			right: 0px;
+
+			display: block;
+			width: 90px;
+			height: 70px;
+
+			cursor: pointer; 
+
+			opacity: 0; /* hide the navigation checkbox */
+			z-index: 1000; /* and place it over the hamburger */ 
+		  
+		  -webkit-touch-callout: none;
+
+		}
+
+		.menu_button{ 
+			padding: 10px 10px;;
+			position: fixed;
+			top: 10px;
+			right: 10px;
+			z-index: 900;
+		}
+
+
+		.menu_button rect{ 
+			transition: opacity .3s ease-out, transform .3s ease-out, fill .3s ease-out;
+			
+		}
+
+		.menu_button rect{
+			opacity: 1;
+			transition: opacity .1s ease-out, transform .3s ease-out, fill .3s ease-out;
+		}
+
+		.menu_check:checked ~ .menu_button rect:first-child{
+			transform: translate(5px, 3px) rotate(45deg);
+		}
+
+		.menu_check:checked ~ .menu_button rect:nth-child(2){
+			opacity: 0;
+			/*transform: translate(20px, 15px) scale(0);*/
+
+		}
+		.menu_check:checked ~ .menu_button rect:nth-child(3){
+			transform: rotate(-45deg) translate(-20px, -6px) ;
+			/*fill: red;*/
+		}
+
+		
+		.menu{
+			display:none;
+			height: 0px;
+			width: calc(100% - 30px);
+			opacity: 0;
+			z-index:-5;
+			transition: opacity .1s ease-in, height .2s ease-in;
+			position: sticky;
+			border: 1px solid #000;
+			background-color: #fff;
+		}
+
+		.menu_check:checked ~ .menu{
+			position: fixed;
+			top: 60px;
+			left: 0;
+			display: block;
+			height: 100%;
+			width: 100%;
+			opacity: 1;
+			z-index: 30;
+			color: #000;
+			transition: opacity .1s ease-in, height .1s ease-in;
+			overflow-y: auto;
+		}
+
+		.menu a:first{
+			top: 80px;
+		}
+		.menu a{
+			display: block;
+			padding: 15px;
+			color: blue;
+			text-decoration: none;
+			text-align: center;
+			font-size: 50px;
+		}
+
+		.menu a:hover{
+			background: blue;
+			color: white;
+		}
+
+	</style>
+	<nav>
+	<input class="menu_check" type="checkbox" />
+	<svg class="menu_button" width="40" height="40">
+		<rect x='0' y='0' width='40' height='4' viewBox="-20 -2 40 4" />
+		<rect x='0' y='15' width='40' height='4'  />
+		<rect x='0' y='30' width='40' height='4'  />
+	</svg>
+	<div class="menu">
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+		<a href="#">blah</a>
+	</div>
+	</nav>
+	<div class="main">
+	<p style="font-size: 200px">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi congue nibh at efficitur imperdiet. Donec efficitur euismod urna in luctus. Nulla sit amet ligula vel massa facilisis euismod at sit amet velit. Vestibulum dignissim massa et viverra facilisis. Mauris id velit pretium, vestibulum nisi quis, aliquet libero. Mauris feugiat commodo pulvinar. Etiam faucibus libero vel sapien faucibus, id consectetur est finibus. Fusce elementum, nibh a consequat ullamcorper, sem odio pulvinar arcu, a cursus dolor nunc sit amet orci.
+
+	</p>
+
+	<p> Pellentesque sed iaculis libero. Sed accumsan, massa et faucibus eleifend, metus lectus accumsan metus, non venenatis lectus lacus non metus. Cras nunc nisi, dictum et orci aliquet, pulvinar sagittis felis. Sed pretium tristique lacus ac consectetur. Morbi ultricies mauris id mollis imperdiet. Vestibulum erat tellus, mattis vel vehicula ac, lacinia ac massa. Nam fringilla egestas augue, a venenatis arcu ultrices non.
+
+	</p>	
+	</div>
+
+
+
+
+</body>
+</html>
